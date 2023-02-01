@@ -26,7 +26,8 @@ COPY ./wait-for-it.sh /usr/sbin/
 RUN chmod +x /usr/sbin/wait-for-it.sh
 
 WORKDIR /app
-
+COPY ./package.json ./
+RUN npm install puppeteer
 RUN npm install puppeteer -g
 RUN node node_modules/puppeteer/install.js
 RUN mkdir /home/.cache

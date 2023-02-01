@@ -9,6 +9,5 @@
   "author": "bloodred17 <https://github.com/bloodred17>",
   "license": "MIT",
   "dependencies": {
-    "puppeteer": "19.5.2"
   }
 }
