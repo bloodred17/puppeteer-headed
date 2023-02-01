@@ -25,8 +25,12 @@ RUN rm -rf /var/lib/apt/lists/*
 COPY ./wait-for-it.sh /usr/sbin/
 RUN chmod +x /usr/sbin/wait-for-it.sh
 
-COPY ./package.json ./
-RUN npm install
+WORKDIR /app
+
+RUN npm install puppeteer -g
+RUN node node_modules/puppeteer/install.js
+RUN mkdir /home/.cache
+RUN cp -r /root/.cache/puppeteer /home/.cache/puppeteer
 
 # Install dependencies
 RUN apt-get update &&\
