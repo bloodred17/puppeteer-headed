@@ -12,10 +12,9 @@ FROM bloodred17/puppeteer-headed
 COPY . /app
 WORKDIR /app
 
-RUN npm install --legacy-peer-deps
-RUN npm install tslib
-
+RUN npm install
 RUN npm run build
+
 RUN export NODE_TLS_REJECT_UNAUTHORIZED=0
 
 CMD Xvfb :99 -screen 0 1024x768x16 & npm run start:prod
